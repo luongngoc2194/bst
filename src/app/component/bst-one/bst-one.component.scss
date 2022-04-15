@@ -1,0 +1,52 @@
+img {
+  width: 94%;
+}
+
+.list-img {
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  .card-body {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-size: 24px;
+  }
+  .card-body>a{
+    display: block;
+    width: 100%;
+    padding: 6px;
+  }
+}
+
+.list-item {
+  position: relative;
+  .card {
+  }
+  margin: 10px 0;
+}
+.control-btn {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translate(0%, -50%);
+  ul{
+    list-style: none;
+    li{
+      margin: 20px 0;
+      button {
+        display: block;
+        background: rgba(159, 158, 158, 0.09);
+        color: #262626;
+        outline: none;}
+
+      button.active {
+        display: none;
+        background: #9f9e9e;
+        color: azure;
+
+      }
+    }
+  }
+}

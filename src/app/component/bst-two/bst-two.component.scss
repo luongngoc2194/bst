@@ -1,0 +1,45 @@
+.control-btn {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translate(0%, -50%);
+  ul{
+    list-style: none;
+    li{
+      margin: 20px 0;
+      button {
+        background: rgba(159, 158, 158, 0.09);
+        outline: none;}
+
+      button.active {
+        background: #9f9e9e;
+        color: azure;
+
+      }
+    }
+  }
+}
+.watch {
+  position: relative;
+  .img-link{
+    display: block;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+//.link-router:hover {
+//  .img-link{
+//    width: 100%;
+//    height: 40rem;
+//    position: absolute;
+//    left: 0%;
+//    top: 100%;
+//    display: block;
+//    z-index: 100;
+//  }
+//}

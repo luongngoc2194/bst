@@ -1,0 +1,38 @@
+<p>bst-two works!</p>
+<div class="list-video">
+  <div *ngFor="let item of listV" class="list-item">
+    <div *ngIf="item.iframeHTML!=''" class="card">
+    <p (mouseleave)="item.hover=false" (mousemove)="item.hover=true" class="link-router"><a href="{{item.link}}" target="_blank">Link...</a>
+    </p>
+    <app-dialog [data]="item.iframeHTML"></app-dialog>
+    <div class="watch" style="position: relative">
+      <div [innerHTML]="item.iframeHTML | noSanitize"></div>
+      <span *ngIf="item.imgLink&&item.hover" class="img-link"
+            [ngStyle]="{'background': '#fff url(' + item.imgLink + ') no-repeat center/contain'}">
+    </span>
+    </div>
+  </div></div>
+</div>
+
+<div class="control-btn">
+  <ul class="list-btns">
+    <li class="item-btn">
+      <button mat-fab [class.active]="controlBtn===0" (click)="controlListFunc(0)">Full</button>
+    </li>
+    <li class="item-btn">
+      <button mat-fab [class.active]="controlBtn===1" (click)="controlListFunc(1)">1</button>
+    </li>
+
+    <li class="item-btn">
+      <button mat-fab [class.active]="controlBtn===2" (click)="controlListFunc(2)">2</button>
+    </li>
+    <li class="item-btn">
+      <button mat-fab [class.active]="controlBtn===3" (click)="controlListFunc(3)">3</button>
+    </li>
+  </ul>
+  <mat-button-toggle-group name="fontStyle" aria-label="Font Style" multiple>
+    <mat-button-toggle value="1" (click)="ShowImage()">Show Image</mat-button-toggle>
+<!--    <mat-button-toggle value="2">2</mat-button-toggle>-->
+<!--    <mat-button-toggle value="3">3</mat-button-toggle>-->
+  </mat-button-toggle-group>
+</div>
