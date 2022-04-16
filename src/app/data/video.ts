@@ -582,6 +582,8 @@ export const VideoIMG = [
 ];
 
 export const Imagedata = [
+  {link: 'https://18comic.vip/album/284728/3d-%E6%88%91%E7%9A%84%E8%80%81%E5%A9%86%E9%BB%83%E9%9B%85%E5%B2%A9',
+  imgLink: 'https://cdn-msp.18comic.org/media/albums/284728.jpg?v=1649755928'},
   {
     link: 'https://18comic.vip/album/295824/%E9%97%B2%E7%9A%84%E6%97%A0%E8%81%8A%E7%9A%84%E4%B8%9C%E5%9D%A1%E5%B1%85%E5%A3%AB-%E5%87%8C%E8%96%87-episode-%EF%BC%91-chinese',
     imgLink: 'https://cdn-msp.18comic.vip/media/albums/295824.jpg?v=1638860387'
