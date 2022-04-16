@@ -582,10 +582,7 @@ export const VideoIMG = [
 ];
 
 export const Imagedata = [
-<<<<<<< HEAD
   {link: 'https://18comic.vip/photo/294583', imgLink: 'https://cdn-msp.18comic.vip/media/albums/294583.jpg?v=1638433180'},
-=======
->>>>>>> 1f3058790c490ff38529395bac806234fccd6a1b
 
   {
     link: 'https://18comic.vip/album/279994/3d-%E9%A2%A8%E6%9C%88%E5%AF%B6%E9%91%92',
