@@ -1,0 +1,30 @@
+<p>bst-two works!</p>
+
+<div class="list-video">
+  <div *ngFor="let item of listV" class="list-item">
+    <p><a href="{{item.link}}" target="_blank">Link...</a></p>
+    <app-dialog [data]="item.iframeHTML"></app-dialog>
+    <div style="position: relative">
+      <div [innerHTML]="item.iframeHTML | noSanitize"></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="control-btn">
+  <ul class="list-btns">
+    <li class="item-btn">
+      <button mat-fab [class.active]="controlBtn===0" (click)="controlListFunc(0)">Full</button>
+    </li>
+     <li class="item-btn">
+      <button mat-fab [class.active]="controlBtn===1" (click)="controlListFunc(1)">1</button>
+    </li>
+
+    <li class="item-btn">
+      <button mat-fab [class.active]="controlBtn===2" (click)="controlListFunc(2)">2</button>
+    </li>
+    <li class="item-btn">
+      <button mat-fab [class.active]="controlBtn===3" (click)="controlListFunc(3)">3</button>
+    </li>
+  </ul>
+</div>

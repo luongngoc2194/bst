@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  width: 300px;
+  margin: 15px;
+}
+
+iframe {
+  margin: 15px;
+}
+.list-video {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
