@@ -1,0 +1,29 @@
+<h1>Bộ Sưu Tập 1</h1>
+<div class="">
+  <div class="list-img">
+    <div *ngFor="let item of listImg" [ngStyle]="" class="list-item">
+      <div *ngIf="item.imgLink" class="card" style="width: 20rem;height: 30rem"
+           [ngStyle]="{'background': '#fff url(' + item.imgLink + ') no-repeat center/contain'}">
+      </div>
+      <div *ngIf="item.imgVideo&&item.imgVideo!=null" class="card" style="width: 20rem;height: 10rem"
+           [ngStyle]="{'background': '#fff url(' + item.imgVideo + ') no-repeat center/contain'}">
+      </div>
+      <div class="card-body">
+        <a target="_blank " href="{{item.link}}">Link...</a>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="control-btn">
+  <ul class="list-btns">
+    <li class="item-btn">
+      <button mat-fab [class.active]="controlBtn===0" (click)="controlListFunc(0)">Commic</button>
+    </li>
+    <li class="item-btn">
+      <button mat-fab [class.active]="controlBtn===1" (click)="controlListFunc(1)">Video</button>
+    </li>
+  </ul>
+</div>

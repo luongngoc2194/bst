@@ -1,0 +1,21 @@
+.control-btn {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translate(0%, -50%);
+  ul{
+    list-style: none;
+    li{
+      margin: 20px 0;
+      button {
+        background: rgba(159, 158, 158, 0.09);
+        outline: none;}
+
+      button.active {
+        background: #9f9e9e;
+        color: azure;
+
+      }
+    }
+  }
+}
