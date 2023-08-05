@@ -2,14 +2,22 @@
 <div class="">
   <div class="list-img">
     <div *ngFor="let item of listImg" [ngStyle]="" class="list-item">
-      <div *ngIf="item.imgLink" class="card" style="width: 20rem;height: 30rem"
+      <div *ngIf="item.imgLink" class="card" style="width: 20rem;height: 20rem"
            [ngStyle]="{'background': '#fff url(' + item.imgLink + ') no-repeat center/contain'}">
       </div>
       <div *ngIf="item.imgVideo&&item.imgVideo!=null" class="card" style="width: 20rem;height: 10rem"
            [ngStyle]="{'background': '#fff url(' + item.imgVideo + ') no-repeat center/contain'}">
       </div>
-      <div class="card-body">
-        <a target="_blank " href="{{item.link}}">Link...</a>
+      <div class="card-body" style="padding: 10px">
+        <div style="display: flex;justify-content: space-between">
+          <a class="action-icon" target="_blank " href="{{item.link}}">
+            <mat-icon>link</mat-icon>
+          </a>
+          <div class="actions" style="display: flex">
+            <span class="action-icon" (click)="show(item)"><mat-icon>edit</mat-icon></span>
+            <span class="action-icon" (click)="deleteComic(item.id)"><mat-icon>delete</mat-icon></span>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -20,10 +28,52 @@
 <div class="control-btn">
   <ul class="list-btns">
     <li class="item-btn">
-      <button mat-fab [class.active]="controlBtn===0" (click)="controlListFunc(0)">Commic</button>
+      <a href="#about" mat-fab [class.active]="controlBtn===0" (click)="controlListFunc(0)"><mat-icon>perm_media</mat-icon></a>
     </li>
     <li class="item-btn">
-      <button mat-fab [class.active]="controlBtn===1" (click)="controlListFunc(1)">Video</button>
+      <a href="#about" mat-fab [class.active]="controlBtn===1" (click)="controlListFunc(1)"><mat-icon>theaters</mat-icon></a>
+    </li>
+    <li class="item-btn">
+      <button mat-fab  (click)="show()">
+        <mat-icon>note_add</mat-icon>
+      </button>
     </li>
   </ul>
 </div>
+
+<ng-template #dialogTemplate let-item>
+  <section class="confirm-dialog">
+    <article mat-dialog-title class="mat-dialog-title">
+      <span class="text">Tips</span>
+      <button [mat-dialog-close]="item" class="no-padding">
+        <i class="dialog-close ico-delete"></i>
+      </button>
+    </article>
+    <article class="dialog-container" mat-dialog-content>
+      <mat-form-field>
+        <mat-label>imgLink</mat-label>
+        <input [(ngModel)]="item.imgLink" matInput>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>imgVideo</mat-label>
+        <input [(ngModel)]="item.imgVideo" matInput>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>link</mat-label>
+        <input [(ngModel)]="item.link" matInput>
+      </mat-form-field>
+      <!--      <mat-form-field>-->
+      <!--        <mat-label>Select</mat-label>-->
+      <!--        <mat-select [(ngModel)]="item.parent_id">-->
+      <!--          <mat-option value="one">First option</mat-option>-->
+      <!--          <mat-option value="two">Second option</mat-option>-->
+      <!--        </mat-select>-->
+      <!--      </mat-form-field>-->
+
+    </article>
+    <article mat-dialog-actions>
+      <!--      <button mat-button class="mat-button" >confirm</button>-->
+      <button type="submit" mat-button class="mat-button" [mat-dialog-close]="item">cancel</button>
+    </article>
+  </section>
+</ng-template>

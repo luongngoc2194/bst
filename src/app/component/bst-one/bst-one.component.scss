@@ -11,6 +11,7 @@ img {
     position: absolute;
     top: 0px;
     left: 0px;
+    width: 100%;
     font-size: 24px;
   }
   .card-body>a{
@@ -41,7 +42,7 @@ img {
         color: #262626;
         outline: none;}
 
-      button.active {
+      a.active,button.active {
         display: none;
         background: #9f9e9e;
         color: azure;
@@ -49,4 +50,21 @@ img {
       }
     }
   }
+}
+
+.dialog-container{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  min-width: 45vw;
+}
+
+.action-icon {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.action-icon:hover {
+  border-radius: 5px;
+  background-color: antiquewhite;
 }
