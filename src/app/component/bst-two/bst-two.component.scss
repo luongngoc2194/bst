@@ -43,3 +43,22 @@
 //    z-index: 100;
 //  }
 //}
+.action-icon {
+  padding: 10px;
+  cursor: pointer;
+}
+
+span.action-icon {
+  color: black;
+}
+
+.action-icon:hover {
+  border-radius: 5px;
+  background-color: antiquewhite;
+}
+.dialog-container{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  min-width: 45vw;
+}

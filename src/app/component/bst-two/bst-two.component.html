@@ -2,40 +2,81 @@
 <div class="list-video">
   <div *ngFor="let item of listV" class="list-item">
     <div *ngIf="item.iframeHTML!=''" class="card">
-    <p (mouseleave)="item.hover=false" (mousemove)="item.hover=true" class="link-router"><a href="{{item.link}}" target="_blank">Link...</a>
-    </p>
-    <app-dialog [data]="item.iframeHTML"></app-dialog>
-    <div class="watch" style="position: relative">
-      <div [innerHTML]="item.iframeHTML | noSanitize"></div>
-      <span *ngIf="item.imgLink&&item.hover" class="img-link"
-            [ngStyle]="{'background': '#fff url(' + item.imgLink + ') no-repeat center/contain'}">
+      <div style="display: flex;justify-content: space-between;padding: 5px;">
+        <a class="action-icon" target="_blank " href="{{item.link}}">
+          <mat-icon>link</mat-icon>
+        </a>
+        <div class="actions" style="display: flex">
+          <span class="action-icon" (click)="show(item)"><mat-icon>edit</mat-icon></span>
+          <span class="action-icon" (click)="deleteVideo(item.id)"><mat-icon>delete</mat-icon></span>
+        </div>
+      </div>
+<!--      <p  class="link-router">-->
+<!--        <a href="{{item.link}}" target="_blank">Link...</a>-->
+<!--      </p>-->
+      <app-dialog (mouseleave)="item.hover=false" (mousemove)="item.hover=true" [data]="item.iframeHTML"></app-dialog>
+      <div class="watch" style="position: relative">
+        <div style="min-width: 590px;min-height: 345px;" [innerHTML]="item.iframeHTML | noSanitize"></div>
+        <span  *ngIf="item.imgLink&&item.hover||!item.iframeHTML" class="img-link"
+              [ngStyle]="{'background': '#fff url(' + item.imgLink + ') no-repeat center/contain'}">
     </span>
+      </div>
     </div>
-  </div></div>
+  </div>
 </div>
 
 <div class="control-btn">
   <ul class="list-btns">
     <li class="item-btn">
-      <button mat-fab [class.active]="controlBtn===0" (click)="controlListFunc(0)">Full</button>
+      <button mat-fab [class.active]="controlBtn===0" (click)="controlListFunc(0)"><mat-icon>navigate_before</mat-icon></button>
     </li>
     <li class="item-btn">
-      <button mat-fab [class.active]="controlBtn===1" (click)="controlListFunc(1)">1</button>
-    </li>
-
-    <li class="item-btn">
-      <button mat-fab [class.active]="controlBtn===2" (click)="controlListFunc(2)">2</button>
+      <button mat-fab [class.active]="controlBtn===1" (click)="controlListFunc(1)"><mat-icon>navigate_next</mat-icon></button>
     </li>
     <li class="item-btn">
-      <button mat-fab [class.active]="controlBtn===3" (click)="controlListFunc(3)">3</button>
-    </li>
-    <li class="item-btn">
-      <button mat-fab [class.active]="controlBtn===4" (click)="controlListFunc(4)">4</button>
+      <button mat-fab (click)="show()">ADD+</button>
     </li>
   </ul>
   <mat-button-toggle-group name="fontStyle" aria-label="Font Style" multiple>
     <mat-button-toggle value="1" (click)="ShowImage()">Show Image</mat-button-toggle>
-<!--    <mat-button-toggle value="2">2</mat-button-toggle>-->
-<!--    <mat-button-toggle value="3">3</mat-button-toggle>-->
+    <!--    <mat-button-toggle value="2">2</mat-button-toggle>-->
+    <!--    <mat-button-toggle value="3">3</mat-button-toggle>-->
   </mat-button-toggle-group>
 </div>
+
+<ng-template #dialogTemplate let-item>
+  <section class="confirm-dialog">
+    <article mat-dialog-title class="mat-dialog-title">
+      <span class="text">Tips</span>
+      <button [mat-dialog-close]="item" class="no-padding">
+        <i class="dialog-close ico-delete"></i>
+      </button>
+    </article>
+    <article class="dialog-container" mat-dialog-content>
+      <mat-form-field>
+        <mat-label>imgLink</mat-label>
+        <input [(ngModel)]="item.imgLink" matInput>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>iframeHTML</mat-label>
+        <input [(ngModel)]="item.iframeHTML" matInput>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>link</mat-label>
+        <input [(ngModel)]="item.link" matInput>
+      </mat-form-field>
+      <!--      <mat-form-field>-->
+      <!--        <mat-label>Select</mat-label>-->
+      <!--        <mat-select [(ngModel)]="item.parent_id">-->
+      <!--          <mat-option value="one">First option</mat-option>-->
+      <!--          <mat-option value="two">Second option</mat-option>-->
+      <!--        </mat-select>-->
+      <!--      </mat-form-field>-->
+
+    </article>
+    <article mat-dialog-actions>
+      <!--      <button mat-button class="mat-button" >confirm</button>-->
+      <button style="background: darkturquoise;" type="submit" mat-button class="mat-button" [mat-dialog-close]="item">SAVE</button>
+    </article>
+  </section>
+</ng-template>
