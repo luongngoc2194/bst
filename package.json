@@ -2,11 +2,11 @@
   "name": "bst",
   "version": "0.0.0",
   "scripts": {
+    "start": "npm-run-all -p serve json-server",
+    "serve": "ng serve",
     "ng": "ng",
-    "start": "ng serve",
     "json-server": "json-server --watch db.json",
     "build": "ng build",
-    "db": "json-server --watch db.json",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
@@ -46,6 +46,7 @@
     "karma-coverage-istanbul-reporter": "~2.1.0",
     "karma-jasmine": "~3.0.1",
     "karma-jasmine-html-reporter": "^1.4.2",
+    "npm-run-all": "^4.1.5",
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
